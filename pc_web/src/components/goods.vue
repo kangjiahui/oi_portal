@@ -243,7 +243,7 @@ export default {
 
     async start_detc() {
       let _this = this;
-      while (!_this.stop_detc()) {
+      while (!_this.stop_detc) {
         await this.$http.get("getImgFlow").then(result => {
           var result = result.body;
           if (result.message === 'SUCCESS') {
@@ -271,6 +271,20 @@ export default {
       let _this = this;
       _this.stop_detc = true;
     },
+
+
+    // start_detc() {
+    //   let _this = this;
+    //   this.intervalID = '';
+    //   this.intervalID = setInterval(function(){
+    //     _this.start_detc_1();
+    //   }, 150);
+    // },
+
+    // stop_detc() {
+    //   clearInterval(this.intervalID); // 清除定时器
+    //   this.intervalID = '';
+    // },
 
 
     start_detc_1() {
@@ -306,10 +320,7 @@ export default {
 
 
 
-    // stop_detc() {
-    //   clearInterval(this.intervalID); // 清除定时器
-    //   this.intervalID = '';
-    // },
+
 
 
     // 占据末尾的function ，不会被调用，请在它上面添加functions ，
